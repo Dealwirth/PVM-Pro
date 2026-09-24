@@ -18,7 +18,12 @@ custom_components/pv_manager/
 │   ├── forecast.py           Verbrauchs- und Solarprognose
 │   ├── planner.py            Ladeplanung
 │   ├── calibration.py        begrenzter Lernlauf
-│   ├── modules.py            Modul-Store
+│   ├── modules/              Modul-Store als Paket: ein Addon = eine Datei
+│   │   ├── __init__.py       stabile öffentliche Schnittstelle
+│   │   ├── _spec.py          ModuleSpec / ModuleCategory
+│   │   ├── _registry.py      Registrierung aller Addons
+│   │   ├── base/core.py      Grundsystem (immer aktiv)
+│   │   └── <kategorie>/<addon>.py   14 optionale Addons
 │   ├── security.py           Sicherheitsterminal
 │   ├── privacy.py            Pseudonymisierung und Nutzlastprüfung
 │   ├── ai.py                 KI-Anbieter und Beratung

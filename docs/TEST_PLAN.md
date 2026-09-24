@@ -41,7 +41,7 @@ python -m unittest discover -s tests -t .
 npm test
 ```
 
-Aktueller Stand: **208 automatisierte Tests**
+Aktueller Stand: **214 automatisierte Tests**
 (119 Rechenkern, 54 Laufzeit und KI-Übertragung, 13 Verträge, 22 Oberfläche).
 
 ## Manuelle Hardware-Abnahme

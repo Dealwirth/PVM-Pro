@@ -21,10 +21,6 @@ jobs:
         uses: hacs/action@main
         with:
           category: integration
-          # Issues and topics are repository metadata that cannot be set by a
-          # workflow. Remove these ignores once the GitHub repository is
-          # configured.
-          ignore: "issues topics"
 
   hassfest:
     name: Hassfest validation

@@ -3,6 +3,11 @@
 15 Karten im internen Store. Nur die Grundfunktion ist Pflicht. Alle anderen
 Module sind freiwillig und einzeln aktivierbar.
 
+Jedes Addon ist eine eigene, in sich lesbare Datei unter
+custom_components/pv_manager/core/modules/, sortiert nach Kategorie. Wie man
+ein eigenes Addon schreibt und registriert:
+[ADDONS.md](ADDONS.md).
+
 | # | Modul | ID | Standard | Abhängigkeiten | Sicherheit |
 |---|---|---|---|---|---|
 | 1 | PV-Manager Grundsystem | `core` | aktiv | – | immer aktiv |

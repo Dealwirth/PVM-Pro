@@ -38,7 +38,7 @@ and the project uses semantic versioning.
   detection, preview before sending and a bold red external-AI indicator.
 - Audit log with automatic redaction and JSON/CSV export.
 - Sensors and binary sensors for energy, forecast, safety and privacy state.
-- 208 tests: 119 core, 54 runtime and AI transport, 13 contract checks and
+- 214 tests: 125 core, 54 runtime and AI transport, 13 contract checks and
   22 frontend rendering tests. The repository is linted and formatted with ruff
   in CI.
 - Final safety gate for every explicit device command: switching off is always

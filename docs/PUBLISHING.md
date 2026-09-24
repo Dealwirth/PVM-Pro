@@ -147,17 +147,11 @@ Wichtig: Die Version im Release-Tag muss zu `"version": "0.1.0"` in
 
 ---
 
-## Schritt 7 – Workflow-Prüfung scharf stellen
+## Schritt 7 – Workflow-Prüfung scharf stellen *(erledigt)*
 
-`.github/workflows/validate.yml` ignoriert zurzeit `issues` und `topics`, weil
-diese Metadaten vor der Veröffentlichung nicht existieren konnten. Sobald
-Schritt 5 erledigt ist, diese Zeile entfernen:
-
-```yaml
-          ignore: "issues topics"
-```
-
-Danach muss der Workflow **Validate** ohne Ignorierungen grün durchlaufen.
+Die Repository-Metadaten (Beschreibung, Topics, Issues) sind gesetzt und
+die `ignore`-Zeile ist aus `.github/workflows/validate.yml` entfernt:
+die HACS-Validierung läuft damit von Anfang an ohne Ausnahmen.
 
 ---
 
@@ -197,7 +191,7 @@ py -m unittest discover -s tests -t .
 node --test tests/frontend/render.test.mjs
 ```
 
-Erwartet: **208 Tests grün** (186 Python, 22 Frontend) und ein fehlerfreier
+Erwartet: **214 Tests grün** (192 Python, 22 Frontend) und ein fehlerfreier
 Lauf von `ruff check` sowie `ruff format --check`.
 
 Zusätzlich empfehlenswert: eine Suche nach versehentlich eingecheckten
