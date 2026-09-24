@@ -33,7 +33,8 @@ set_settings:
         text: {}
     settings:
       name: Einstellungen
-      description: Verschachtelte Einstellungen, z. B. {"terminal": {"level": "observe"}}.
+      description: "Verschachtelte Einstellungen, z. B. {'terminal': {'level': 'observe'}}."
+      example: {'terminal': {'level': 'observe'}}
       required: true
       selector:
         object: {}
