@@ -1,0 +1,36 @@
+name: Validate
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  schedule:
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  hacs:
+    name: HACS validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: HACS validation
+        uses: hacs/action@main
+        with:
+          category: integration
+          # Issues and topics are repository metadata that cannot be set by a
+          # workflow. Remove these ignores once the GitHub repository is
+          # configured.
+          ignore: "issues topics"
+
+  hassfest:
+    name: Hassfest validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Hassfest
+        uses: home-assistant/actions/hassfest@master

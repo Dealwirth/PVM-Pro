@@ -1,0 +1,70 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "PV-Manager einrichten",
+        "description": "{hint}",
+        "data": {
+          "meter_entity": "Stromzähler (Gesamtwert)",
+          "meter_import_entity": "Netzbezug (optional)",
+          "meter_export_entity": "Einspeisung (optional)",
+          "meter_mode": "Vorzeichen des Stromzählers",
+          "pv_entity": "PV-Erzeugung",
+          "load_entity": "Hausverbrauch (optional)",
+          "battery_entity": "Batterieleistung (optional)",
+          "battery_soc_entity": "Batterie-Ladestand (optional)",
+          "weather_entity": "Wetter-Entität (optional)",
+          "calendar_entity": "Kalender (optional)",
+          "price_entity": "Strompreis (optional)"
+        }
+      }
+    },
+    "error": {
+      "entity_not_found": "Diese Entität existiert nicht."
+    },
+    "abort": {
+      "already_configured": "Der PV-Manager ist bereits eingerichtet."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "PV-Manager-Quellen",
+        "description": "{hint}",
+        "data": {
+          "meter_entity": "Stromzähler (Gesamtwert)",
+          "meter_import_entity": "Netzbezug (optional)",
+          "meter_export_entity": "Einspeisung (optional)",
+          "meter_mode": "Vorzeichen des Stromzählers",
+          "pv_entity": "PV-Erzeugung",
+          "load_entity": "Hausverbrauch (optional)",
+          "battery_entity": "Batterieleistung (optional)",
+          "battery_soc_entity": "Batterie-Ladestand (optional)",
+          "weather_entity": "Wetter-Entität (optional)",
+          "calendar_entity": "Kalender (optional)",
+          "price_entity": "Strompreis (optional)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "pv_power": {"name": "PV Leistung"},
+      "grid_import": {"name": "Netzbezug"},
+      "grid_export": {"name": "Einspeisung"},
+      "household_load": {"name": "Hausverbrauch"},
+      "battery_soc": {"name": "Batterie Ladestand"},
+      "solar_forecast_24h": {"name": "PV Prognose 24 h"},
+      "consumption_forecast_24h": {"name": "Verbrauchsprognose 24 h"},
+      "forecast_confidence": {"name": "Prognose-Vertrauen"},
+      "security_score": {"name": "Sicherheitsbewertung"},
+      "active_plans": {"name": "Aktive Ladepläne"}
+    },
+    "binary_sensor": {
+      "security_critical": {"name": "Sicherheit kritisch"},
+      "emergency_stop": {"name": "Not-Aus"},
+      "external_ai_active": {"name": "Externe KI aktiv"},
+      "balance_problem": {"name": "Energiebilanz auffällig"}
+    }
+  }
+}

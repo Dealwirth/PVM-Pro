@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Home Assistant runtime / secrets
+configuration.yaml
+secrets.yaml
+.storage/
+home-assistant.log
+home-assistant_v2.db
+*.db-journal
+
+# Tooling
+.freebuff/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local build artifacts
+dist/
+build/
+preview/

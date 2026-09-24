@@ -1,0 +1,62 @@
+name: Tests
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint and format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Install ruff
+        run: python -m pip install --upgrade "ruff>=0.16,<0.17"
+      - name: Ruff check
+        run: ruff check .
+      - name: Ruff format check
+        run: ruff format --check .
+
+  core:
+    name: Python core tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12", "3.13"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Compile integration
+        run: python -m compileall -q custom_components/pv_manager
+      - name: Run all Python tests
+        # Covers the framework independent core, the Home Assistant facing
+        # runtime against tests/ha/ha_stubs.py, and the contract checks. No Home
+        # Assistant installation is required.
+        run: python -m unittest discover -s tests -t . -v
+
+  frontend:
+    name: Frontend tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+      - name: Run frontend tests
+        run: node --test tests/frontend/render.test.mjs

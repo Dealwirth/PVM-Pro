@@ -1,0 +1,16 @@
+{
+  "name": "pv-manager",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Privacy-first Home Assistant PV and large-load manager with its own custom UI.",
+  "scripts": {
+    "test": "node --test tests/frontend/render.test.mjs",
+    "test:frontend": "node --test tests/frontend/render.test.mjs",
+    "test:core": "python -m unittest discover -s tests -t ."
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

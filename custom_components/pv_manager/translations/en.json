@@ -1,0 +1,70 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up PV Manager",
+        "description": "{hint}",
+        "data": {
+          "meter_entity": "Grid meter (combined value)",
+          "meter_import_entity": "Grid import (optional)",
+          "meter_export_entity": "Grid export (optional)",
+          "meter_mode": "Grid meter sign convention",
+          "pv_entity": "PV generation",
+          "load_entity": "Household load (optional)",
+          "battery_entity": "Battery power (optional)",
+          "battery_soc_entity": "Battery state of charge (optional)",
+          "weather_entity": "Weather entity (optional)",
+          "calendar_entity": "Calendar (optional)",
+          "price_entity": "Electricity price (optional)"
+        }
+      }
+    },
+    "error": {
+      "entity_not_found": "This entity does not exist."
+    },
+    "abort": {
+      "already_configured": "PV Manager is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "PV Manager sources",
+        "description": "{hint}",
+        "data": {
+          "meter_entity": "Grid meter (combined value)",
+          "meter_import_entity": "Grid import (optional)",
+          "meter_export_entity": "Grid export (optional)",
+          "meter_mode": "Grid meter sign convention",
+          "pv_entity": "PV generation",
+          "load_entity": "Household load (optional)",
+          "battery_entity": "Battery power (optional)",
+          "battery_soc_entity": "Battery state of charge (optional)",
+          "weather_entity": "Weather entity (optional)",
+          "calendar_entity": "Calendar (optional)",
+          "price_entity": "Electricity price (optional)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "pv_power": {"name": "PV power"},
+      "grid_import": {"name": "Grid import"},
+      "grid_export": {"name": "Grid export"},
+      "household_load": {"name": "Household load"},
+      "battery_soc": {"name": "Battery state of charge"},
+      "solar_forecast_24h": {"name": "Solar forecast 24 h"},
+      "consumption_forecast_24h": {"name": "Consumption forecast 24 h"},
+      "forecast_confidence": {"name": "Forecast confidence"},
+      "security_score": {"name": "Security score"},
+      "active_plans": {"name": "Active charging plans"}
+    },
+    "binary_sensor": {
+      "security_critical": {"name": "Security critical"},
+      "emergency_stop": {"name": "Emergency stop"},
+      "external_ai_active": {"name": "External AI active"},
+      "balance_problem": {"name": "Energy balance issue"}
+    }
+  }
+}

@@ -1,0 +1,26 @@
+name: Funktionswunsch
+description: Eine Idee für ein neues Modul oder eine Verbesserung.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: input
+    id: module
+    attributes:
+      label: Betroffenes Modul oder neues Modul
+  - type: textarea
+    id: problem
+    attributes:
+      label: Welches Problem löst die Funktion?
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Auswirkung auf Sicherheit und Datenschutz
+      description: Muss die Funktion Grenzen prüfen, Daten senden oder etwas schalten?
+    validations:
+      required: true
+  - type: textarea
+    id: alternative
+    attributes:
+      label: Einfachere Alternative?

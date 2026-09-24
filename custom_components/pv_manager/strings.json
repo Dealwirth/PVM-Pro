@@ -1,0 +1,50 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "PV Manager einrichten",
+        "description": "{hint}",
+        "data": {
+          "meter_entity": "Grid meter (combined value)",
+          "meter_import_entity": "Grid import value (optional)",
+          "meter_export_entity": "Grid export value (optional)",
+          "meter_mode": "Grid meter sign convention",
+          "pv_entity": "PV generation",
+          "load_entity": "Household load (optional)",
+          "battery_entity": "Battery power (optional)",
+          "battery_soc_entity": "Battery state of charge (optional)",
+          "weather_entity": "Weather entity (optional)",
+          "calendar_entity": "Calendar entity (optional)",
+          "price_entity": "Electricity price (optional)"
+        }
+      }
+    },
+    "error": {
+      "entity_not_found": "This entity does not exist."
+    },
+    "abort": {
+      "already_configured": "PV Manager is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "PV Manager sources",
+        "description": "{hint}",
+        "data": {
+          "meter_entity": "Grid meter (combined value)",
+          "meter_import_entity": "Grid import value (optional)",
+          "meter_export_entity": "Grid export value (optional)",
+          "meter_mode": "Grid meter sign convention",
+          "pv_entity": "PV generation",
+          "load_entity": "Household load (optional)",
+          "battery_entity": "Battery power (optional)",
+          "battery_soc_entity": "Battery state of charge (optional)",
+          "weather_entity": "Weather entity (optional)",
+          "calendar_entity": "Calendar entity (optional)",
+          "price_entity": "Electricity price (optional)"
+        }
+      }
+    }
+  }
+}

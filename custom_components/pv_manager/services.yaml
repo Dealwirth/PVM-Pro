@@ -1,0 +1,184 @@
+set_module:
+  name: Modul aktivieren oder deaktivieren
+  description: >-
+    Aktiviert oder deaktiviert ein Modul des internen PV-Manager-Stores.
+    Abhängige Module werden mitaktiviert. Die Grundfunktion bleibt immer aktiv.
+  fields:
+    entry_id:
+      name: PV-Manager-Eintrag
+      description: Optionaler Eintrag, falls später mehrere Anlagen verwaltet werden.
+      required: false
+      selector:
+        text: {}
+    module_id:
+      name: Modul
+      description: Technische Kennung des Moduls, z. B. price_cost oder security_terminal.
+      required: true
+      selector:
+        text: {}
+    enabled:
+      name: Aktiviert
+      required: true
+      selector:
+        boolean: {}
+
+set_settings:
+  name: Einstellungen aktualisieren
+  description: Aktualisiert Einstellungen, Sicherheitsstufe, Datenschutz oder KI-Auswahl.
+  fields:
+    entry_id:
+      name: PV-Manager-Eintrag
+      required: false
+      selector:
+        text: {}
+    settings:
+      name: Einstellungen
+      description: Verschachtelte Einstellungen, z. B. {"terminal": {"level": "observe"}}.
+      required: true
+      selector:
+        object: {}
+
+request_report:
+  name: Bericht anfordern
+  description: >-
+    Erstellt einen Sicherheitsbericht. Ohne externe KI läuft er lokal.
+    Externe Anbieter benötigen Datenschutzmodus und ausdrückliche Bestätigung.
+  fields:
+    entry_id:
+      name: PV-Manager-Eintrag
+      required: false
+      selector:
+        text: {}
+    provider_id:
+      name: Anbieter
+      required: false
+      selector:
+        text: {}
+    user_confirmed:
+      name: Externe Übertragung bestätigt
+      required: false
+      default: false
+      selector:
+        boolean: {}
+
+run_calibration:
+  name: Lernlauf starten
+  description: >-
+    Startet einen zeitlich und energetisch begrenzten Lernlauf für genau ein
+    schaltbares Gerät. Der Lauf bricht bei Grenzwerten sofort ab und schaltet
+    das Gerät aus.
+  fields:
+    entry_id:
+      name: PV-Manager-Eintrag
+      required: false
+      selector:
+        text: {}
+    entity_id:
+      name: Gerät
+      description: Derzeit werden ausschließlich schaltbare switch-Entitäten geprüft.
+      required: true
+      selector:
+        entity:
+          domain: switch
+    device_id:
+      name: Geräte-ID
+      required: false
+      selector:
+        text: {}
+    max_power_w:
+      name: Maximale Leistung in W
+      required: false
+      default: 2000
+      selector:
+        number:
+          min: 100
+          max: 11000
+          step: 100
+          unit_of_measurement: W
+    max_energy_kwh:
+      name: Maximale Testenergie in kWh
+      required: false
+      default: 0.5
+      selector:
+        number:
+          min: 0.05
+          max: 5
+          step: 0.05
+          unit_of_measurement: kWh
+    max_seconds_on:
+      name: Maximale Einschaltdauer in Sekunden
+      required: false
+      default: 120
+      selector:
+        number:
+          min: 10
+          max: 600
+          step: 10
+          unit_of_measurement: s
+    repetitions:
+      name: Wiederholungen
+      required: false
+      default: 2
+      selector:
+        number:
+          min: 1
+          max: 5
+          step: 1
+
+set_device_state:
+  name: Gerät sicher ein- oder ausschalten
+  description: >-
+    Führt einen ausdrücklichen Gerätebefehl durch die zentrale Sicherheits-
+    prüfung. Ausschalten ist immer ein sicherer Stopp; Einschalten benötigt
+    bestätigte Grenzen, aktuelle Daten und ausreichenden Netz-Freiraum.
+  fields:
+    entry_id:
+      name: PV-Manager-Eintrag
+      required: false
+      selector:
+        text: {}
+    device_id:
+      name: Gerät
+      description: Entity-ID des zu schaltenden Geräts.
+      required: true
+      selector:
+        entity:
+          domain: switch
+    turn_on:
+      name: Einschalten
+      required: true
+      selector:
+        boolean: {}
+    user_confirmed:
+      name: Vom Nutzer bestätigt
+      required: false
+      default: true
+      selector:
+        boolean: {}
+
+cancel_calibration:
+  name: Lernlauf abbrechen
+  description: Bricht den Lernlauf ab und schaltet das getestete Gerät aus.
+  fields:
+    entry_id:
+      name: PV-Manager-Eintrag
+      required: false
+      selector:
+        text: {}
+
+emergency_stop:
+  name: Not-Aus schalten
+  description: >-
+    Sperrt oder entsperrt alle automatischen Aktionen. Es werden keine fremden
+    Geräte ungefragt abgeschaltet.
+  fields:
+    entry_id:
+      name: PV-Manager-Eintrag
+      required: false
+      selector:
+        text: {}
+    active:
+      name: Not-Aus aktiv
+      required: true
+      selector:
+        boolean: {}
